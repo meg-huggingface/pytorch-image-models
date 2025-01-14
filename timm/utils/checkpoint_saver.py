@@ -70,7 +70,7 @@ class CheckpointSaver:
                     os.unlink(dst)  # required for Windows support.
             except (OSError, NotImplementedError) as e:
                 self.can_hardlink = False
-        os.replace(src, dst)
+        os.rename(src, dst)
 
     def _duplicate(self, src, dst):
         if self.can_hardlink:
